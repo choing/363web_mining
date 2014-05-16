@@ -1,0 +1,1 @@
+2014-03-26 22:51:14; @LiberateMyi; iPhone 5S does not require activation even when the IMEI is not in the database as activated. Bypassed it when Apple Mgr. "couldn't". 

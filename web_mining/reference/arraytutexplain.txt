@@ -1,0 +1,22 @@
+$array = array(
+    0 => array(
+        'name' => 'John Doe',
+        'email' => 'john@example.com'
+    ),
+    1 => array(
+        'name' => 'Jane Doe',
+        'email' => 'jane@example.com'
+    ),
+);
+
+Which is equivalent to
+
+$array = array();
+
+$array[0] = array();
+$array[0]['name'] = 'John Doe';
+$array[0]['email'] = 'john@example.com';
+
+$array[1] = array();
+$array[1]['name'] = 'Jane Doe';
+$array[1]['email'] = 'jane@example.com';

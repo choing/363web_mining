@@ -1,0 +1,1 @@
+2014-03-26 22:21:04; @notjosh; hah, I created a rdar about emoji issues (rdar://16431347), but http://t.co/h0Tvir4tPq swallowed the emoji characters. openradar.me works :) 

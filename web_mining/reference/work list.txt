@@ -1,0 +1,25 @@
+AND
+OR
+scoring
+auto complete
+spell correction ( edit distance )
+
+
+Your basic task is to provide the following functions (but not limited to)
+- Search interface
+- Keyword search (e.g., lebron james)
+- Temporal search (e.g., lebron james [28/03/2014, 29/03/2014])
+- Index
+- User interface
+- Ranked result
+
+Potential extension for your project
+- Auto complete suggestion
+- Advanced ranking model
+- Advanced algorithm for temporal search
+- Efficient indexing for temporal search
+- Interactive UI
+- Spelling correction
+- Query expansion
+- Data mining tasks
+- Enriching the result by fetching more data

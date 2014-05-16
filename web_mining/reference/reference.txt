@@ -1,0 +1,11 @@
+for stemming.php, the source code is from :
+http://www.chuggnutt.com/stemmer-source
+
+INTRUDUCTION:
+The Porter Stemming Algorithm was developed by Martin Porter for reducing English words to their word stems.
+For example, the word “connections” would be reduced to its stem form “connect.”
+
+
+IMPORTANCE:
+Stemmer->stem(word) , the parameter is a word , instead of a sentence.
+( I know that in our assignment, we put a sentence as a parameter )

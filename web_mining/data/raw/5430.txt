@@ -1,0 +1,1 @@
+2014-03-26 22:08:43; @volatile_tk; by @wowaname: Why do we use ngIRCd? Simple, it was the only thing available in Cydia's repos back when I was using a rooted Apple TV. 

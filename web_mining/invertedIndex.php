@@ -17,7 +17,7 @@
         They should be treated as a tweet. Thus, if the current line does not contain a ';'
         they should be part of the former line
     */
-    //ini_set('memory_limit', '512M');
+    ini_set('memory_limit', '10240M');
     require_once("stemming.php");
 
     //array_push for stop words
@@ -65,7 +65,8 @@
         //counting the tf
         foreach( $tokens as $token ) {
             $token = trim(preg_replace('/\s\s+/', '', $token));
-            //if( array_search( $token , $stopsarr ) ) { continue; }
+            //if the token is one of the stopword , skip it
+            if( array_search( $token , $stopsarr ) ) { continue; }
 
             $token = $stemmer->Stem($token);
             if($token == "" ) {continue;}                   // skip the "" word
@@ -83,7 +84,7 @@
             $temtf = $termsArray[$term]['tf'];
             $temwf = 1 + log10($temtf);
             $termsArray[$term]['wf'] = $temwf;
-            $wfsqu += $temwf;
+            $wfsqu += pow( $temwf , 2 ) ;
         }
 
         //count di
@@ -96,22 +97,35 @@
         }
     }
 
+
+    writetofile( $terms_di );
+
 //write to the index
-    $counter = 0;
-    foreach( $terms_di as $term => $vararr ) {  // vararr : array ; key: docID ; value: Norm di.
+    function writetofile( $terms ) {
+        //var_dump($terms);
+
+        $counter = 0;
         $filepath = "./data/index/" . $counter . ".txt";
 
-        $fileopen = fopen($filepath,'a');
-        fwrite($fileopen,$term . ":");
+        foreach( $terms as $term => $vararr ) {  // vararr : array ; key: docID ; value: Norm di.
 
-        foreach( $vararr as $doc => $Normdi ) {
-            //var_dump($vararr);
-           // echo "The term($term) in $doc has value $Normdi" . "\n";
-            fwrite($fileopen, $doc . " " . $Normdi . ",");
+            $fileopen = fopen($filepath,'a');
+            fwrite($fileopen,$term . ":");
+
+            foreach( $vararr as $doc => $Normdi ) {
+                //var_dump($vararr);
+                //echo "The term($term) in $doc has value $Normdi" . "\n";
+                fwrite($fileopen, $doc . " " . $Normdi . ",");
+            }
+
+            fwrite($fileopen , "\n");
+            $counter++;
+            if($counter % 3000 == 0) {
+                $filepath = "./data/index/" . $counter . ".txt";
+                fclose($fileopen);
+            }
         }
-
-        $counter++;
         fclose($fileopen);
-
     }
+
 ?>

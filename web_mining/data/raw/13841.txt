@@ -1,1 +1,0 @@
-2014-03-26 22:22:10; @BeckyRytlewski; When I log onto a school computer, it should automatically log me into my D2L, mail, and stuinfo accounts 

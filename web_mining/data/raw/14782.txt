@@ -1,1 +1,0 @@
-2014-03-26 22:23:43; @casparterhorst; In #keynote you cannot change the endpoints of the shape arrow in which you can place text. Tested? #fail #apple 

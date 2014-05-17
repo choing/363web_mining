@@ -1,1 +1,0 @@
-2014-03-26 22:31:39; @AnoopKaushal; HOW DISABLE AUTO RUN   1) Click Start, Run and enter GPEDIT.MSC  2) Go to Computer Configuration, Administrative... http://t.co/S9ht6c1Tka 

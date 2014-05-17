@@ -1,1 +1,0 @@
-2014-03-26 22:49:28; @tilley; RT @BenedictEvans: Wondering if Apple would create an iOS identity system. No more 'type in your user ID', just an API call& 

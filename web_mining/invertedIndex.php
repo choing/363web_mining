@@ -29,7 +29,7 @@
         array_push($stopsarr , $current);
     }
 
-    $tweets = fopen('/Users/choing/Desktop/context.txt','r');
+    $tweets = fopen('./data/context.txt','r');
 
     //$tweets = fopen('./data/context.txt','r');
     $stemmer = new Stemmer;

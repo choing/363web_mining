@@ -29,9 +29,11 @@
         array_push($stopsarr , $current);
     }
 
-    $tweets = fopen('./data/context.txt','r');
+    $tweets = fopen('/Users/choing/Desktop/context.txt','r');
+
+    //$tweets = fopen('./data/context.txt','r');
     $stemmer = new Stemmer;
-    $docID = -1;
+    $docID = 0;
     $terms_di = array();
 
     while(!feof($tweets)) {
@@ -40,8 +42,8 @@
 
         $line = fgets($tweets);
 
-        if ( strpos($line,';') != false ) {     //if the line contains a ';'
-            $docID++;
+        if ( strpos($line,';') == 19 && is_numeric(substr($line,0,1)) ) {     //if the line contains a ';'
+
 
             list( $date , $user , $content ) = array_pad( explode(';',$line) , 3 , "");
 
@@ -51,6 +53,7 @@
             fwrite( $file, $line );
             fclose($file);
 
+            $docID++;
         } else {
             $content = $line;
 
@@ -120,7 +123,7 @@
 
             fwrite($fileopen , "\n");
             $counter++;
-            if($counter % 3000 == 0) {
+            if($counter % 10000 == 0) {
                 $filepath = "./data/index/" . $counter . ".txt";
                 fclose($fileopen);
             }

@@ -67,7 +67,7 @@
 
         foreach($temp_ans as $id => $value) {
             $ans[$id] = $term1_docid[$id] + $term2_docid[$id];
-            echo $id . "</br>";
+            //echo $id . "</br>";
         }
 
         //all keys of $term1: all the docID that $term1 has

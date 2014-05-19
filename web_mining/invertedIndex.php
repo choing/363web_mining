@@ -17,7 +17,7 @@
         They should be treated as a tweet. Thus, if the current line does not contain a ';'
         they should be part of the former line
     */
-    ini_set('memory_limit', '10240M');
+    ini_set('memory_limit', '5120M');
     require_once("stemming.php");
 
     //array_push for stop words
@@ -25,13 +25,13 @@
     $stopsarr = array();
     while( !feof($stops) ) {
         $current = fgets($stops);
-        $current = trim(preg_replace('/\s\s+/', '', $current));
+        $current = trim(preg_replace('/[^A-Za-z0-9\-]/', '', $current));
         array_push($stopsarr , $current);
     }
 
-    $tweets = fopen('./data/context.txt','r');
+    //$tweets = fopen('/Users/choing/Desktop/context.txt','r');
 
-    //$tweets = fopen('./data/context.txt','r');
+    $tweets = fopen('./data/context.txt','r');
     $stemmer = new Stemmer;
     $docID = 0;
     $terms_di = array();
@@ -67,9 +67,21 @@
 
         //counting the tf
         foreach( $tokens as $token ) {
-            $token = trim(preg_replace('/\s\s+/', '', $token));
+            //only do the index for meaningful ENGILSH word
+            //remove all special characters
+            $token = trim(preg_replace('/[^A-Za-z0-9]/', '', $token));
+
+            // if the token is an empty string
+            if( $token == '' ) {continue;}
+
             //if the token is one of the stopword , skip it
             if( array_search( $token , $stopsarr ) ) { continue; }
+
+            //if the token is a hyperlink, skip it
+            if( preg_match('*http*',$token) ) {continue;}
+
+            //if the token has a length more than 20, skip it
+            if( (strlen($token) > 20) ) {continue;}
 
             $token = $stemmer->Stem($token);
             if($token == "" ) {continue;}                   // skip the "" word
@@ -80,6 +92,7 @@
                 $termsArray[$token] = array();
                 $termsArray[$token]['tf'] = 1;
             }
+
         }
 
         //count wf
@@ -116,8 +129,6 @@
             fwrite($fileopen,$term . ":");
 
             foreach( $vararr as $doc => $Normdi ) {
-                //var_dump($vararr);
-                //echo "The term($term) in $doc has value $Normdi" . "\n";
                 fwrite($fileopen, $doc . " " . $Normdi . ",");
             }
 

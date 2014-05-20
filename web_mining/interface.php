@@ -48,10 +48,12 @@
 	    <div class="ui-widget">
 		    <label for="tags">Type your search here	: </label><br>
 			 <input id="tags" name="search" size="40">
-			<input type="submit" name="go" value="Search" style="width:150;height:30"><br><br>
+			<input type="submit" name="go" value="Search" style="width:150;height:30">
+			
+<br><br>
 			
 		</div>
-    </form>
+
 <?php
     echo "From:";
     $i = 0;
@@ -67,7 +69,7 @@
     }
     print"</select>";
 
-    print"<select name= \"day\" style=\"width:40;height:30\">";
+    print"<select name= \"month\" style=\"width:40;height:30\">";
 
     for($i = 1; $i<=12; $i++)
     {
@@ -76,28 +78,28 @@
     }
     print"</select>";
 
-    print"<select name= \"day\" style=\"width:53;height:30\">";
+    print"<select name= \"year\" style=\"width:53;height:30\">";
     for($i = 2014; $i<=2014; $i++)
     {
 	    print"<option value=\"$i\">$i</option>";
     }
     print"</select>";
     echo "To:";
-    print"<select name= \"day\" style=\"width:40;height:30\">";
+    print"<select name= \"day1\" style=\"width:40;height:30\">";
     for($i = 1; $i<=31; $i++)
     {
 	    print"<option value=\"$i\">$i</option>";
     }
     print"</select>";
 
-    print"<select name= \"day\" style=\"width:40;height:30\">";
+    print"<select name= \"month1\" style=\"width:40;height:30\">";
     for($i = 1; $i<=12; $i++)
     {
 	    print"<option value=\"$i\">$i</option>";
     }
     print"</select>";
 
-    print"<select name= \"day\" style=\"width:53;height:30\">";
+    print"<select name= \"year1\" style=\"width:53;height:30\">";
     for($i = 2014; $i<=2014; $i++)
     {
     	print"<option value=\"$i\">$i</option>";
@@ -106,5 +108,7 @@
     print"</form></select>";
 
 ?>
+<input type="checkbox" name="temporal">Temporal Search<br>
+    </form>
 	</body>
 </html>

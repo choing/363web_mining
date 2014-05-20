@@ -1,6 +1,6 @@
 <?php
 
-	$tweets = fopen('/Users/choing/Desktop/context.txt','r');
+	$tweets = fopen('./data/context.txt','r');
 	$docID = 0;
     $days = array();
 

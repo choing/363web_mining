@@ -33,7 +33,7 @@
 
     $tweets = fopen('./data/context.txt','r');
     $stemmer = new Stemmer;
-    $docID = 0;
+    $docID = -1;
     $terms_di = array();
 
     while(!feof($tweets)) {
@@ -43,7 +43,7 @@
         $line = fgets($tweets);
 
         if ( strpos($line,';') == 19 && is_numeric(substr($line,0,1)) ) {     //if the line contains a ';'
-
+            $docID++;
 
             list( $date , $user , $content ) = array_pad( explode(';',$line) , 3 , "");
 
@@ -53,7 +53,6 @@
             fwrite( $file, $line );
             fclose($file);
 
-            $docID++;
         } else {
             $content = $line;
 

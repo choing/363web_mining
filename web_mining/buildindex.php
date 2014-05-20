@@ -33,8 +33,6 @@
 
     }
 
-    //var_dump($hasharr);
-
     $datearr = array();
     $filepath = "./data/date_index/date_index.txt";
     $file = file($filepath);

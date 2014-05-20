@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--<link rel="stylesheet" href="/resources/demos/style.css"> -->
   <script>
   $(function() {
     var availableTags = [
@@ -46,16 +47,16 @@
     <img src="search1.jpg"/>
     <form action="interface2.php" method="post">
 	    <div class="ui-widget">
-		    <label for="tags">Type your search here	: </label><br>
-			 <input id="tags" name="search" size="40">
-			<input type="submit" name="go" value="Search" style="width:150;height:30">
+			 <input id="tags" name="search" size="40" type="text" placeholder="Type your search here">
+			<input type="submit" name="go" value="Search" class="btn" style="width:150;height:30">
 			
 <br><br>
-			
+
 		</div>
 
 <?php
-    echo "From:";
+
+    echo " <span class='label label-default'>From:</span>";
     $i = 0;
 
     print "<form action=\"interface2.php\" method=\"post\">
@@ -110,5 +111,7 @@
 ?>
 <input type="checkbox" name="temporal">Temporal Search<br>
     </form>
+
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

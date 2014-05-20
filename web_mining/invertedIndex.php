@@ -133,7 +133,7 @@
 
             fwrite($fileopen , "\n");
             $counter++;
-            if($counter % 10000 == 0) {
+            if($counter % 30000 == 0) {
                 $filepath = "./data/index/" . $counter . ".txt";
                 fclose($fileopen);
             }
